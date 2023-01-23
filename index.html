@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Counting Coins</title>
+</head>
+<body>
+  <div id="coin-counter">
+    <h1>Counting Coins</h1>
+    <div id="penny-section">
+      <h2>Pennies</h2>
+      <label for="penny-count">Number of Pennies:</label>
+      <span id="penny-count"></span>
+      <br>
+      <label for="penny-total">Total Value: $</label>
+      <span id="penny-total"></span>
+      <br>
+      <button id="add-penny" aria-label="Add 1 Penny">Add 1</button>
+      <button id="subtract-penny" aria-label="Subtract 1 Penny">Subtract 1</button>
+    </div>
+    <div id="nickel-section">
+      <h2>Nickels</h2>
+      <label for="nickel-count">Number of Nickels:</label>
+      <span id="nickel-count"></span>
+      <br>
+      <label for="nickel-total">Total Value: $</label>
+      <span id="nickel-total"></span>
+      <br>
+      <button id="add-nickel" aria-label="Add 1 Nickel">Add 1</button>
+      <button id="subtract-nickel" aria-label="Subtract 1 Nickel">Subtract 1</button>
+    </div>
+    <div id="dime-section">
+      <h2>Dimes</h2>
+      <label for="dime-count">Number of Dimes:</label>
+      <span id="dime-count"></span>
+      <br>
+      <label for="dime-total">Total Value: $</label>
+      <span id="dime-total"></span>
+      <br>
+      <button id="add-dime" aria-label="Add 1 Dime">Add 1</button>
+      <button id="subtract-dime" aria-label="Subtract 1 Dime">Subtract 1</button>
+    </div>
+    <div id="quarter-section">
+      <h2>Quarters</h2>
+      <label for="quarter-count">Number of Quarters:</label>
+      <span id="quarter-count"></span>
+      <br>
+      <label for="quarter-total">Total Value:</label>
+      <span id="quarter-total"></span>
+      <br>
+      <button id="add-quarter" aria-label="add 1 quarter">Add 1</button>
+      <button id="subtract-quarter" aria-label="subtract 1 quarter">Subtract 1</button>
+    </div>
+    <div id="halfdollar-section">
+      <h2>Half Dollars</h2>
+      <label for="halfdollar-count">Number of Half Dollars:</label>
+      <span id="halfdollar-count"></span>
+      <br>
+      <label for="halfdollar-total">Total Value:</label>
+      <span id="halfdollar-total"></span>
+      <br>
+      <button id="add-halfDollar" aria-label="add 1 half dollar">Add 1</button>
+      <button id="subtract-halfDollar" aria-label="subtract 1 half dollar">Subtract 1</button>
+    </div>
+      <div id="total-section">
+        <h2>Total Value</h2>
+        <p>Total Value of all Coins: $<span id="total-value" aria-live="polite"></span></p>
+      </div>
+  </div>
+<script>
+//Use Variables with clearer names
+let pennyCounter = 0;
+let nickelCounter = 0;
+let dimeCounter = 0;
+let quarterCounter = 0;
+let halfDollarCounter = 0;
+let totalCoinValue = 0;
+
+//Give a Better name for my functions so they are clearer.
+function updateCoinCounterDisplay() {
+    document.getElementById("penny-count").innerHTML = pennyCounter;
+    document.getElementById("penny-total").innerHTML = pennyCounter * 0.01;
+    document.getElementById("nickel-count").innerHTML = nickelCounter;
+    document.getElementById("nickel-total").innerHTML = nickelCounter * 0.05;
+    document.getElementById("dime-count").innerHTML = dimeCounter;
+    document.getElementById("dime-total").innerHTML = dimeCounter * 0.1;
+    document.getElementById("quarter-count").innerHTML = quarterCounter;
+    document.getElementById("quarter-total").innerHTML = quarterCounter * 0.25;
+    document.getElementById("halfdollar-count").innerHTML = halfDollarCounter;
+    document.getElementById("halfdollar-total").innerHTML = halfDollarCounter * 0.50;
+    document.getElementById("total-value").innerHTML = (pennyCounter * 0.01) + (nickelCounter * 0.05) + (dimeCounter * 0.1) + (quarterCounter * 0.25) + (halfDollarCounter * 0.50);
+}
+
+document.getElementById("add-penny").addEventListener("click", function(){
+    pennyCounter++;
+    updateCoinCounterDisplay();
+});
+document.getElementById("add-nickel").addEventListener("click", function(){
+    nickelCounter++;
+    updateCoinCounterDisplay();
+});
+document.getElementById("add-dime").addEventListener("click", function(){
+    dimeCounter++;
+    updateCoinCounterDisplay();
+});
+document.getElementById("add-quarter").addEventListener("click", function(){
+    quarterCounter++;
+    updateCoinCounterDisplay();
+});
+document.getElementById("add-halfDollar").addEventListener("click", function(){
+        halfDollarCounter++;
+        updateCoinCounterDisplay();
+});
+
+document.getElementById("subtract-penny").addEventListener("click", function(){
+    if (pennyCounter > 0) {
+        pennyCounter--;
+        updateCoinCounterDisplay();
+    }
+});
+document.getElementById("subtract-nickel").addEventListener("click", function(){
+    if (nickelCounter > 0) {
+        nickelCounter--;
+        updateCoinCounterDisplay();
+    }
+});
+document.getElementById("subtract-dime").addEventListener("click", function(){
+    if (dimeCounter > 0) {
+        dimeCounter--;
+        updateCoinCounterDisplay();
+    }
+});
+document.getElementById("subtract-quarter").addEventListener("click", function(){
+    if (quarterCounter > 0) {
+        quarterCounter--;
+        updateCoinCounterDisplay();
+    }
+});
+document.getElementById("subtract-halfDollar").addEventListener("click", function(){
+    if (halfdollarCounter > 0) {
+        halfdollarCounter--;
+        updateCoinCounterDisplay();
+    }
+});
+document.getElementById("total-value").addEventListener("click", function(){
+        totalValue = (pennyCounter * 0.01) + (nickelCounter * 0.05) + (dimeCounter * 0.1) + (quarterCounter * 0.25) + (halfdollarCounter * 0.50);
+        updateCoinCounterDisplay();
+});
+
+updateCoinCounterDisplay();
+
+</script>
+</html>
